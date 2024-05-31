@@ -17,11 +17,8 @@ function getMaxPointsProduct() {
 
 function calculateRemainingPoints() {
     let maxPointsProduct = getMaxPointsProduct();
-    let remainingProducts = products.filter(product => product != maxPointsProduct);
-    let totalRemainingPoints = remainingProducts.reduce((total, currentPoint) => ({
-        points: total.points + currentPoint.points
-    }));
-    return totalRemainingPoints.points;
+    let remainingPoints = availablePoints - maxPointsProduct.points;
+    return remainingPoints;
 }
 
 function redeemProducts() {
@@ -42,5 +39,5 @@ function redeemProducts() {
 }
 
 // console.log(getMaxPointsProduct());
-// console.log(calculateRemainingPoints());
-redeemProducts();
+console.log(calculateRemainingPoints());
+// redeemProducts();
